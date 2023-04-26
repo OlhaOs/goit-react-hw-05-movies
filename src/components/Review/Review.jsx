@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Author, Section } from './Review.styled';
+import { Author, Section, Notification } from './Review.styled';
 const API_KEY = '53f91c80aac0fdf8257fab8d211f13b5';
 
 export default function Review() {
@@ -35,7 +35,7 @@ export default function Review() {
         </Section>
       ) : (
         <Section>
-          <p>We don't have reviews on this movie</p>
+          <Notification>We don't have reviews on this movie</Notification>
         </Section>
       )}
     </>

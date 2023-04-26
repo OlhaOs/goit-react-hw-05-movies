@@ -11,3 +11,10 @@ export const Author = styled.span`
   font-weight: 600;
   color: rgba(86, 44, 133, 0.8);
 `;
+
+export const Notification = styled.p`
+  color: rgba(118, 82, 159, 0.8);
+  font-size: 20px;
+  margin-left: 30px;
+  text-align: center;
+`;
