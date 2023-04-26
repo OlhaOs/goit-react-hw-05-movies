@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 import MoviesList from '../components/MoviesList';
+import { Section, Input, Button, Notification, Query } from './Movies.styled';
 
 const API_KEY = '53f91c80aac0fdf8257fab8d211f13b5';
 
@@ -46,22 +47,32 @@ export default function Movies() {
 
   return (
     <>
-      <input
-        type="text"
-        value={query}
-        onChange={e => setSearchParams({ query: e.target.value })}
-      />
-      <button type="submit" onClick={handleSearchButton}>
-        Search
-      </button>
-      {loading ? (
-        <p>
-          <InfinitySpin width="200" color="#4fa94d" />
-        </p>
-      ) : (
-        movies && <MoviesList movies={movies} />
-      )}
-      {isMovieFound && <p>We didn't found any movie</p>}
+      <Section>
+        <Input
+          type="text"
+          value={query}
+          onChange={e => setSearchParams({ query: e.target.value })}
+          placeholder="Enter movie"
+        />
+        <Button type="submit" onClick={handleSearchButton}>
+          Search
+        </Button>
+
+        {loading ? (
+          <p>
+            <InfinitySpin width="100" color="#680d7a" />
+          </p>
+        ) : (
+          movies && movies.length > 0 && <MoviesList movies={movies} />
+        )}
+
+        {isMovieFound && !loading && (
+          <Notification>
+            No movies were found for your request <Query>{query}</Query>.
+            Please, type something else and press search button.
+          </Notification>
+        )}
+      </Section>
     </>
   );
 }

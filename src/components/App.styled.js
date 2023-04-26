@@ -12,19 +12,21 @@ export const Header = styled.header`
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  padding: 8px 0;
+  padding: 8px 0 8px 12px;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
+
+  box-shadow: rgba(118, 82, 159, 0.8) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 `;
 export const Link = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: black;
+  color: rgba(57, 16, 103, 0.8);
   font-weight: 500;
 
   &.active {
     color: white;
-    background-color: orangered;
+    background-color: rgba(118, 82, 159, 0.8);
   }
 `;

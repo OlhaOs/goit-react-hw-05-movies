@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Author } from './Review.styled';
+import { Author, Section } from './Review.styled';
 const API_KEY = '53f91c80aac0fdf8257fab8d211f13b5';
 
 export default function Review() {
@@ -24,15 +24,19 @@ export default function Review() {
   return (
     <>
       {reviews ? (
-        <ul>
-          {reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <Author>Author: {author}</Author> <p>{content}</p>
-            </li>
-          ))}
-        </ul>
+        <Section>
+          <ul>
+            {reviews.map(({ id, author, content }) => (
+              <li key={id}>
+                <Author>Author: {author}</Author> <p>{content}</p>
+              </li>
+            ))}
+          </ul>
+        </Section>
       ) : (
-        <p>We don't have reviews on this movie</p>
+        <Section>
+          <p>We don't have reviews on this movie</p>
+        </Section>
       )}
     </>
   );

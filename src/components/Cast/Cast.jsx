@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
+  Section,
   CastImg,
   List,
   ListItem,
@@ -27,23 +28,28 @@ export default function Cast() {
   return (
     <>
       {cast && (
-        <List>
-          {cast.map(item => (
-            <ListItem key={item.id}>
-              {item.profile_path ? (
-                <CastImg
-                  src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
-                  alt="profile_photo"
-                />
-              ) : (
-                <PlaceholderImg src={`${pictureNotFound}`} alt="profile_photo" />
-              )}
+        <Section>
+          <List>
+            {cast.map(item => (
+              <ListItem key={item.id}>
+                {item.profile_path ? (
+                  <CastImg
+                    src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
+                    alt="profile_photo"
+                  />
+                ) : (
+                  <PlaceholderImg
+                    src={`${pictureNotFound}`}
+                    alt="profile_photo"
+                  />
+                )}
 
-              <TextName>{item.name}</TextName>
-              <Text>Character - {item.character}</Text>
-            </ListItem>
-          ))}
-        </List>
+                <TextName>{item.name}</TextName>
+                <Text>Character - {item.character}</Text>
+              </ListItem>
+            ))}
+          </List>
+        </Section>
       )}
     </>
   );

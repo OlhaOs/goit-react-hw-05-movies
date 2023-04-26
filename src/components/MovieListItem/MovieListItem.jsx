@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import {
   Card,
   CardItem,
@@ -8,9 +8,11 @@ import {
   Text,
   AddInfo,
   Section,
+  Link
+  
 } from './MovieListItem.styled';
 
-export default function MovieListItem({ movie }) {
+export default function MovieListItem({ movie, children }) {
   const { title, poster_path, vote_average, overview, genres } = movie || {};
 
   return (
@@ -18,6 +20,7 @@ export default function MovieListItem({ movie }) {
       {movie && (
         <>
           <Section>
+            {children}
             <Card>
               <img
                 src={`https://image.tmdb.org/t/p/w200${poster_path}`}

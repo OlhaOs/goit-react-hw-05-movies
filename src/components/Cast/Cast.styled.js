@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const Section = styled.section`
+  padding: 10px;
+
+  margin: 10px 0;
+  box-shadow: rgba(118, 82, 159, 0.8) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+`;
+
 export const CastImg = styled.img`
   width: 100px;
   margin-top: 20px;
@@ -28,9 +36,8 @@ export const ListItem = styled.li`
   flex-basis: calc(100% / 3 - 20px);
 
   border-radius: 4px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(118, 82, 159, 0.8) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 `;
 export const Text = styled.p`
   margin-top: 0;

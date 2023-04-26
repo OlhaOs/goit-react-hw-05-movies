@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import MoviesList from '../components/MoviesList';
+import { Title } from './Home.styled';
 
 const API_KEY = '53f91c80aac0fdf8257fab8d211f13b5';
 const URL = `  https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
@@ -15,5 +16,10 @@ export default function Home() {
       });
   }, []);
 
-  return <main>{movies && <MoviesList movies={movies} />}</main>;
+  return (
+    <main>
+      <Title>Trending movies with week:</Title>
+      {movies && <MoviesList movies={movies} />}
+    </main>
+  );
 }
