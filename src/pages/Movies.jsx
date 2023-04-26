@@ -12,7 +12,7 @@ export default function Movies() {
   const [isMovieFound, setisMovieFound] = useState(false);
   const [searchParam, setSearchParams] = useSearchParams();
   const query = searchParam.get('query') ?? '';
-
+  
   useEffect(() => {
     if (movies.length > 0) {
       setLoading(false);
@@ -21,27 +21,24 @@ export default function Movies() {
 
   const handleSearchButton = () => {
     setLoading(true);
+    
   };
 
   useEffect(() => {
     if (loading) {
-      setTimeout(
-        () =>
-          fetch(
-            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`
-          )
-            .then(response => response.json())
-            .then(data => {
-              setMovies(data.results);
-              setLoading(false);
-              setisMovieFound(data.results.length === 0 ? true : false);
-            })
-            .catch(error => {
-              console.error('Error fetching movies:', error);
-              setLoading(false);
-            }),
-        2000
-      );
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`
+      )
+        .then(response => response.json())
+        .then(data => {
+          setMovies(data.results);
+          setLoading(false);
+          setisMovieFound(data.results.length === 0 ? true : false);
+        })
+        .catch(error => {
+          console.error('Error fetching movies:', error);
+          setLoading(false);
+        });
     }
   }, [query, loading]);
 
