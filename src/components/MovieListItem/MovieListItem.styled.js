@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 export const Section = styled.section`
   padding: 10px;
-
   margin: 10px 0;
   box-shadow: rgba(118, 82, 159, 0.8) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -12,7 +11,12 @@ export const Section = styled.section`
 export const Card = styled.div`
   display: flex;
   gap: 20px;
-  max-height: 300px;
+`;
+export const CardImg = styled.img`
+  display: flex;
+  gap: 20px;
+  height: 300px;
+  align-self: center;
 `;
 export const CardItem = styled.div`
   display: flex;

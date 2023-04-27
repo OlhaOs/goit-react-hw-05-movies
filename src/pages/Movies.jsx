@@ -12,17 +12,12 @@ export default function Movies() {
   const [isMovieFound, setisMovieFound] = useState(false);
   const [searchParam, setSearchParams] = useSearchParams();
   const query = searchParam.get('query') ?? '';
-  
+
   useEffect(() => {
     if (movies.length > 0) {
       setLoading(false);
     }
   }, [movies]);
-
-  const handleSearchButton = () => {
-    setLoading(true);
-    
-  };
 
   useEffect(() => {
     if (loading) {
@@ -42,6 +37,10 @@ export default function Movies() {
     }
   }, [query, loading]);
 
+  
+  const handleSearchButton = () => {
+    setLoading(true);
+  };
   return (
     <>
       <Section>

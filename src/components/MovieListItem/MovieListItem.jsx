@@ -2,14 +2,14 @@ import { Outlet } from 'react-router-dom';
 import {
   Card,
   CardItem,
+  CardImg,
   Title,
   Overview,
   Genres,
   Text,
   AddInfo,
   Section,
-  Link
-  
+  Link,
 } from './MovieListItem.styled';
 
 export default function MovieListItem({ movie, children }) {
@@ -22,7 +22,7 @@ export default function MovieListItem({ movie, children }) {
           <Section>
             {children}
             <Card>
-              <img
+              <CardImg
                 src={`https://image.tmdb.org/t/p/w200${poster_path}`}
                 alt="poster"
               />
